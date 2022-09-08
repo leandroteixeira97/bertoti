@@ -26,3 +26,7 @@ Como Titus afirma, a Engenharia de Software está ligada à ações muito mais e
 * Sistema deverá ser compatível com diversos sistemas operacionais, tais como Windows, Linux e MacOS, bem como Android e iOS.
 * Sistema deverá ter uma interface amigável, com imagens e informações importantes sobre os filmes.
 * O sistema deverá ser hospedado em servidores web que garantam alta disponibilidade do mesmo.
+
+### Diagrama de Classes do Projeto
+
+![Diagrama de Classes](diagrama-de-classes.png)
