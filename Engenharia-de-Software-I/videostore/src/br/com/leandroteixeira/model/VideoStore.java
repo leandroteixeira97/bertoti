@@ -5,11 +5,11 @@ import java.util.List;
 public class VideoStore {
 
     private List<Movie> movies;
-    private List<Client> clients;
+    private List<Customer> customers;
 
-    public VideoStore(List<Movie> movies, List<Client> clients) {
+    public VideoStore(List<Movie> movies, List<Customer> customers) {
         this.movies = movies;
-        this.clients = clients;
+        this.customers = customers;
     }
 
     public List<Movie> getMovies() {
@@ -20,12 +20,12 @@ public class VideoStore {
         this.movies = movies;
     }
 
-    public List<Client> getClients() {
-        return this.clients;
+    public List<Customer> getClients() {
+        return this.customers;
     }
 
-    public void setClients(List<Client> clients) {
-        this.clients = clients;
+    public void setClients(List<Customer> customers) {
+        this.customers = customers;
     }
 
     public List<Movie> findMoviesByName(String movieName) {

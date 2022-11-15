@@ -2,18 +2,22 @@ package br.com.leandroteixeira.model;
 
 import java.util.List;
 
-public class Client {
+public class Customer {
 
     private int id;
     private String name;
     private List<RentedMovie> rentedMovies;
     private List<RentedMovie> rentHistory;
 
-    public Client(int id, String name, List<RentedMovie> rentedMovies, List<RentedMovie> rentHistory) {
+    public Customer(int id, String name, List<RentedMovie> rentedMovies, List<RentedMovie> rentHistory) {
         this.id = id;
         this.name = name;
         this.rentedMovies = rentedMovies;
         this.rentHistory = rentHistory;
+    }
+
+    public Customer() {
+
     }
 
     public int getId() {

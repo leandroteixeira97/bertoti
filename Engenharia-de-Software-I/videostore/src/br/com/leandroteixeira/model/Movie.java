@@ -10,14 +10,14 @@ public class Movie {
     private String sinopse;
     private double duration;
     private int releaseYear;
-    private List<String> mainActors;
-//    private int quantity;
-//    private int inStock;
-//    private int rented;
+    private String mainActors;
+    private int quantity;
+    private int inStock;
+    private int rented;
     private boolean isRented;
 
     public Movie (int id, String name, String category, String sinopse, double duration,
-                  int releaseYear, List<String> mainActors, boolean isRented) {
+                  int releaseYear, String mainActors, int quantity, int inStock, int rented, boolean isRented) {
         this.id = id;
         this.name = name;
         this.category = category;
@@ -25,8 +25,13 @@ public class Movie {
         this. duration = duration;
         this.releaseYear = releaseYear;
         this.mainActors = mainActors;
+        this.quantity = quantity;
+        this.inStock = inStock;
+        this.rented = rented;
         this.isRented = isRented;
     }
+
+    public Movie () {};
 
     public int getId() {
         return id;
@@ -76,19 +81,41 @@ public class Movie {
         this.releaseYear = releaseYear;
     }
 
-    public List<String> getMainActors() {
+    public String getMainActors() {
         return mainActors;
     }
 
-    public void setMainActors(List<String> mainActors) {
+    public void setMainActors(String mainActors) {
         this.mainActors = mainActors;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public int getInStock() {
+        return inStock;
+    }
+
+    public void setInStock(int inStock) {
+        this.inStock = inStock;
+        this.quantity = this.rented + inStock;
+    }
+
+    public int getRented() {
+        return rented;
+    }
+
+    public void setRented(int rented) {
+        this.rented = rented;
+        this.quantity = this.inStock + rented;
     }
 
     public boolean isRented() {
         return isRented;
     }
 
-    public void setRented(boolean rented) {
+    public void setIsRented(boolean rented) {
         isRented = rented;
     }
 }
