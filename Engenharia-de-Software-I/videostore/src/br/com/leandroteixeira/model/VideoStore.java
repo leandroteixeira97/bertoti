@@ -1,5 +1,7 @@
 package br.com.leandroteixeira.model;
 
+import br.com.leandroteixeira.controller.ConnectionFactory;
+
 import java.util.List;
 
 public class VideoStore {
@@ -29,7 +31,7 @@ public class VideoStore {
     }
 
     public List<Movie> findMoviesByName(String movieName) {
-        List <Movie> filteredMovieList = null;
+        List <Movie> filteredMovieList = ConnectionFactory.Application.getMovies();
         for (Movie movie : movies) {
             if (movie.getName() == movieName) {
                 filteredMovieList.add(movie);
@@ -38,21 +40,22 @@ public class VideoStore {
         return filteredMovieList;
     }
 
-    public List<Movie> findMovieByID(int movieID) {
-        List <Movie> filteredMovieList = null;
-        for (Movie movie : movies) {
-            if (movie.getId() == movieID) {
-                filteredMovieList.add(movie);
+    public Movie findMovieByID(int movieID) {
+        List <Movie> filteredMovieList = ConnectionFactory.Application.getMovies();
+        Movie movie = new Movie();
+        for (Movie filteredMovie : filteredMovieList) {
+            if (filteredMovie.getId() == movieID) {
+                movie = filteredMovie;
             }
         }
-        return filteredMovieList;
+        return movie;
     }
 
-    public void editMovie(int movie_id, Movie newMovie) {
+    public void editMovie(int movieId, Movie newMovie) {
 
     }
 
     public void removeMovie(int movieID) {
-
+        ConnectionFactory.Application.removeMovie(movieID);
     }
 }
