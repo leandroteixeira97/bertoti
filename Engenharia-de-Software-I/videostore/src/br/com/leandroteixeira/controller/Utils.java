@@ -83,7 +83,7 @@ public class Utils {
                 "quantity=" + newMovie.getQuantity() + "," +
                 "in_stock=" + newMovie.getInStock() + "," +
                 "rented=" + newMovie.getRented() + "," +
-                "is_rented=" + newMovie.isRented() + "," + "WHERE movie_id=" + movieId;
+                "is_rented=" + newMovie.getIsRented() + "," + "WHERE movie_id=" + movieId;
         try {
             PreparedStatement stmt = connection.prepareStatement(sqlQuery);
             stmt.execute();
@@ -105,6 +105,20 @@ public class Utils {
         }
     }
 
+    public static void addNewMovie(Movie movie) {
+        Utils.connection = new ConnectionFactory().getConnection();
+        String sqlQuery = "INSERT INTO movies (movie_name, category, sinopse, duration, release_year, main_actors, quantity, in_stock, rented, is_rented) VALUES (\"" +
+                movie.getName() + "\",\"" + movie.getCategory() + "\",\"" + movie.getSinopse() + "\"," + movie.getDuration() + "," + movie.getReleaseYear() + ",\"" + movie.getMainActors() +
+                "\"," + movie.getQuantity() + "," + movie.getInStock() + "," + movie.getRented() + "," + movie.getIsRented() + ")";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sqlQuery);
+            stmt.execute();
+            stmt.close();
+        } catch (SQLException exception) {
+            throw new RuntimeException(exception);
+        }
+    }
+
     public static void printMovie(Movie movie) {
         System.out.println("Name: " + movie.getName() + "\n" +
                 "Category: " + movie.getCategory() + "\n" +
@@ -114,6 +128,6 @@ public class Utils {
                 "Main Actors: " + movie.getMainActors() + "\n" +
                 "Movies in stock: " + movie.getInStock() + "\n" +
                 "Movies rented: " + movie.getRented() + "\n" +
-                "Is rented?: " + movie.isRented());
+                "Is rented?: " + movie.getIsRented());
     }
 }

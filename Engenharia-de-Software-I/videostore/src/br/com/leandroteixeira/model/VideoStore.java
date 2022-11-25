@@ -51,6 +51,10 @@ public class VideoStore {
         return movie;
     }
 
+    public void addNewMovie(Movie newMovie) {
+        Utils.addNewMovie(newMovie);
+    }
+
     public void editMovie(int movieId, Movie newMovie) {
         Utils.editMovie(movieId, newMovie);
     }

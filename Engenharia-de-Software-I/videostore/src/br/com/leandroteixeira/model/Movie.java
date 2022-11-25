@@ -111,7 +111,7 @@ public class Movie {
         this.quantity = this.inStock + rented;
     }
 
-    public boolean isRented() {
+    public boolean getIsRented() {
         return isRented;
     }
 
